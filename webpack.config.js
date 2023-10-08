@@ -1,8 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const glob = require('glob');
-
-const pages = glob.sync('pages/*.html');
+// const glob = require('glob');
+// const pages = glob.sync('pages/*.html');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -16,13 +15,29 @@ module.exports = {
     clean: true,
   },
   plugins: [
-    ...pages.map(
+    /* ...pages.map(
       (el) =>
         new HtmlWebpackPlugin({
           filename: el.replace(/^pages\//, ''),
           template: el,
         }),
-    ),
+    ), */
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, './src/pages/index.html'), // шаблон
+      filename: 'index.html', // название выходного файла
+    }), // Generates default index.html
+    new HtmlWebpackPlugin({
+      filename: 'blog-posts.html',
+      template: 'src/pages/blog-posts.html',
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'post.html',
+      template: 'src/pages/post.html',
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'feedback.html',
+      template: 'src/pages/feedback.html',
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css',
       chunkFilename: '[id].[hash].css',

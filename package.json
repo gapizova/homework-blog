@@ -9,7 +9,9 @@
     "lint:fix": "prettier --write . && eslint . --fix && stylelint \"**/*.css\" --fix --ignore-path .gitignore",
     "prepare": "husky install",
     "start": "webpack serve --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "sass-dev": "sass --watch --update --style=expanded src/styles/SCSS:src/styles/CSS",
+    "sass-prod": "sass --no-source-map --style=compressed src/styles/SCSS:src/styles/CSS"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +23,7 @@
     "autoprefixer": "^10.4.16",
     "babel-jest": "^29.7.0",
     "browser-sync-webpack-plugin": "^2.3.0",
+    "css-loader": "^6.8.1",
     "cssnano": "^6.0.1",
     "eslint": "^8.51.0",
     "eslint-config-airbnb-base": "^15.0.0",
