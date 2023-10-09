@@ -1,0 +1,16 @@
+.button {
+  padding: 1em 3em;
+  border: none;
+  font-family: Sen, sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.33;
+  color: #232536;
+  background-color: #FFD050;
+}
+.button:hover {
+  background-color: #ffbe0d;
+}
+
+/*# sourceMappingURL=button.css.map */

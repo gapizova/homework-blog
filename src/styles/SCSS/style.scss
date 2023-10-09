@@ -1,12 +1,7 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-@import 'header';
+@import "reset";
+@import "global";
+@import "vars";
+@import "mixin";
+@import 'navbar';
 @import 'footer';
-
-html {
-  scroll-behavior: smooth;
-}
+@import "button";
