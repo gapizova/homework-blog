@@ -56,7 +56,7 @@ html,
 body {
   scroll-behavior: smooth;
   height: 100%;
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
 }
 
 .wrapper {
@@ -96,10 +96,24 @@ body {
   font-weight: 700;
   line-height: 1.33;
   color: #232536;
-  background-color: #FFD050;
+  background-color: #ffd050;
 }
+
 .button:hover {
   background-color: #ffbe0d;
+}
+
+.hidden-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=style.css.map */
