@@ -1,3 +1,6 @@
+@import "mixin";
+@import "vars";
+
 html,
 body {
   scroll-behavior: smooth;
@@ -23,4 +26,8 @@ body {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 1em;
+}
+
+span {
+  @include font-label($purple);
 }
