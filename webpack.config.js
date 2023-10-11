@@ -23,12 +23,12 @@ module.exports = {
         }),
     ), */
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './src/pages/index.html'), // шаблон
+      template: path.resolve(__dirname, 'src/pages/index.html'), // шаблон
       filename: 'index.html', // название выходного файла
     }), // Generates default index.html
     new HtmlWebpackPlugin({
-      filename: 'blog-posts.html',
-      template: 'src/pages/blog-posts.html',
+      filename: 'blog.html',
+      template: 'src/pages/blog.html',
     }),
     new HtmlWebpackPlugin({
       filename: 'post.html',
