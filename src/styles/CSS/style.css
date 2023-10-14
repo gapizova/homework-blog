@@ -79,6 +79,12 @@ body {
   padding: 0 1em;
 }
 
+.wrapper-inner {
+  max-width: 845px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
 span {
   font-family: Sen, sans-serif;
   font-size: 0.875rem;
