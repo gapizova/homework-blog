@@ -18,3 +18,37 @@
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+.hero {
+  height: 90dvh;
+  background: url("/src/images/hero.png") no-repeat center center, radial-gradient(80.99% 71.93% at 74.58% 0%, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 60%) 100%);
+  background-size: cover;
+
+  & > .card-post {
+    width: 60%;
+    position: relative;
+    top: 20%;
+    left: 10%;
+
+    & > .card-post__subtitle {
+      @include font-caps($light);
+
+      span {
+        color: $light;
+        font-weight: 700;
+      }
+    }
+
+    & > .card-post__title {
+      margin-top: 0.6em;
+
+      @include font-display($light);
+
+      width: 35%;
+    }
+
+    & > .card-post__label {
+      margin-top: 1.5em;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 .header {
-  width: 100%;
+  max-width: 100%;
   padding: 1.5em 5em;
   display: flex;
   justify-content: space-between;
@@ -29,7 +29,5 @@
   font-style: normal;
   font-weight: 400;
   line-height: 1.75;
-  color: #FFF;
+  color: #fff;
 }
-
-/*# sourceMappingURL=navbar.css.map */

@@ -34,7 +34,8 @@
 }
 
 .subscribe__input {
-  width: 30%;
+  width: 60%;
+  text-align: end;
   font-family: Sen, sans-serif;
   font-size: 1rem;
   font-style: normal;
@@ -43,7 +44,8 @@
   color: #6D6E76;
 }
 .subscribe__input input {
-  width: 60%;
+  max-width: 325px;
+  margin-right: 1.5em;
   border: 1px solid #6D6E76;
   background: rgba(255, 255, 255, 0.1);
   padding: 0.875em 1.5em;
