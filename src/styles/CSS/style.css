@@ -95,6 +95,65 @@ span {
   color: #592EA9;
 }
 
+h2 {
+  font-family: Sen, sans-serif;
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.33;
+  letter-spacing: -2px;
+  color: #232536;
+}
+
+.card-post__description {
+  font-family: Sen, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #6D6E76;
+}
+
+.card-post__label {
+  font-family: Sen, sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.43;
+  color: #4C4C4C;
+}
+
+.card-post__title {
+  font-family: Sen, sans-serif;
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -1px;
+  color: #232536;
+}
+
+.card-post__subtitle {
+  font-family: Sen, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #232536;
+}
+
+.big-title {
+  font-family: Sen, sans-serif;
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.33;
+  letter-spacing: -2px;
+  color: #232536;
+}
+
 .header {
   max-width: 100%;
   padding: 1.5em 5em;
@@ -238,11 +297,11 @@ span {
 
 .hero {
   height: 90dvh;
-  background: url("/src/images/hero.png") no-repeat center center, radial-gradient(80.99% 71.93% at 74.58% 0%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+  background: radial-gradient(80.99% 71.93% at 74.58% 0%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%), url("/src/images/hero.png") no-repeat center center;
   background-size: cover;
 }
 .hero > .card-post {
-  width: 60%;
+  width: 80%;
   position: relative;
   top: 20%;
   left: 10%;
@@ -273,7 +332,132 @@ span {
   width: 35%;
 }
 .hero > .card-post > .card-post__label {
+  margin-top: 1em;
+  font-family: Sen, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #FFF;
+}
+.hero > .card-post > .card-post__label > span {
+  color: #FFD050;
+}
+.hero > .card-post > .card-post__description {
+  margin: 1em 0 2em;
+  width: 31%;
+  font-family: Sen, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #FFF;
+}
+
+.featured-post {
+  margin-top: 6em;
+  display: flex;
+  gap: 30px;
+}
+.featured-post .post {
+  width: 48%;
+}
+.featured-post .post > .card-post {
+  margin-top: 2em;
+  padding: 2em;
+  border: 1px solid rgba(109, 110, 118, 0.1);
+}
+.featured-post .post .card-post__label {
+  margin-top: 2em;
+}
+.featured-post .post .card-post__title {
+  margin-top: 0.8em;
+}
+.featured-post .post .card-post__description {
   margin-top: 1.5em;
+}
+.featured-post .post .button {
+  margin-top: 1.5em;
+}
+.featured-post .all-posts {
+  width: 48%;
+}
+.featured-post .all-posts .title-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.featured-post .all-posts .all-posts__link {
+  font-family: Sen, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #592EA9;
+}
+.featured-post .all-posts .all-posts__box {
+  margin-top: 2em;
+  padding: 0.1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.featured-post .all-posts .all-posts__box > .card-post {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2em 2em 1.56em;
+}
+.featured-post .all-posts .all-posts__box > .card-post:hover {
+  background-color: #FBF6EA;
+}
+.featured-post .all-posts .all-posts__box .card-post__title {
+  width: 60%;
+  font-family: Sen, sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.33;
+  color: #232536;
+}
+
+.about-hero {
+  margin-top: 6em;
+}
+.about-hero .about-hero__box {
+  position: relative;
+  display: flex;
+  gap: 30px;
+  background-color: #F4F0F8;
+}
+.about-hero .about-hero__box::after {
+  position: absolute;
+  content: "";
+  top: -23px;
+  right: 0;
+  width: 80%;
+  height: 23px;
+  background: linear-gradient(to left, #592EA9 50%, #FFD050 50%);
+}
+.about-hero .about-hero__box > .card-post {
+  width: 45%;
+  padding: 6em 0 6em 5em;
+}
+.about-hero .about-hero__box .card-post__title {
+  margin-top: 1em;
+}
+.about-hero .about-hero__box .card-post__description {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+.about-hero .about-hero__box .about-hero__link {
+  font-family: Sen, sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.77;
+  color: #592EA9;
 }
 
 /*# sourceMappingURL=style.css.map */

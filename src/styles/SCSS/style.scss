@@ -21,11 +21,11 @@
 
 .hero {
   height: 90dvh;
-  background: url("/src/images/hero.png") no-repeat center center, radial-gradient(80.99% 71.93% at 74.58% 0%, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 60%) 100%);
+  background: radial-gradient(80.99% 71.93% at 74.58% 0%, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 60%) 100%), url("/src/images/hero.png") no-repeat center center;
   background-size: cover;
 
   & > .card-post {
-    width: 60%;
+    width: 80%;
     position: relative;
     top: 20%;
     left: 10%;
@@ -48,7 +48,131 @@
     }
 
     & > .card-post__label {
+      margin-top: 1em;
+
+      @include font-text($light);
+
+      & > span{
+        color: $yellow;
+      }
+    }
+
+    & > .card-post__description {
+      margin: 1em 0 2em;
+      width: 31%;
+
+      @include font-text($light);
+    }
+  }
+}
+
+.featured-post {
+  margin-top: 6em;
+  display: flex;
+  gap: 30px;
+
+  .post {
+    width: 48%;
+
+    & > .card-post {
+      margin-top: 2em;
+      padding: 2em;
+      border: 1px solid rgba($medium-grey, 0.1);
+    }
+
+    .card-post__label {
+      margin-top: 2em;
+    }
+
+    .card-post__title {
+      margin-top: .8em;
+    }
+
+    .card-post__description {
       margin-top: 1.5em;
+    }
+
+    .button {
+      margin-top: 1.5em;
+    }
+  }
+
+  .all-posts {
+    width: 48%;
+
+    .title-block {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .all-posts__link {
+      @include font-text($purple);
+    }
+
+    .all-posts__box {
+      margin-top: 2em;
+      padding: 0.1em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & > .card-post {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2em 2em 1.56em;
+
+        &:hover {
+          background-color: $light-yellow;
+        }
+      }
+
+      .card-post__title {
+        width: 60%;
+
+        @include font-h4;
+      }
+    }
+  }
+}
+
+.about-hero {
+  margin-top: 6em;
+
+  .about-hero__box {
+    position: relative;
+    display: flex;
+    gap: 30px;
+    background-color: $lavender;
+
+    &::after {
+      position: absolute;
+      content: '';
+      top: -23px;
+      right: 0;
+      width: 80%;
+      height: 23px;
+      background: linear-gradient(to left, $purple 50%, $yellow 50%);
+    }
+
+    & > .card-post {
+      width: 45%;
+      padding: 6em 0 6em 5em;
+    }
+
+    .card-post__title {
+      margin-top: 1em;
+    }
+
+    .card-post__description {
+      margin-top: 0.8em;
+      margin-bottom: 0.8em;
+    }
+
+    .about-hero__link {
+      @include font-link;
     }
   }
 }

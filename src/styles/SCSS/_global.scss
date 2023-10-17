@@ -39,3 +39,27 @@ body {
 span {
   @include font-label($purple);
 }
+
+h2 {
+  @include font-h2;
+}
+
+.card-post__description {
+  @include font-text($medium-grey);
+}
+
+.card-post__label {
+  @include font-label($dark-grey);
+}
+
+.card-post__title {
+  @include font-h3;
+}
+
+.card-post__subtitle {
+  @include font-caps;
+}
+
+.big-title {
+  @include font-h2;
+}

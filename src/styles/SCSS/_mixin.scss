@@ -110,3 +110,12 @@
   text-transform: uppercase;
   color: $color;
 }
+
+@mixin font-link($color: #592EA9) {
+  font-family: Sen, sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.77;
+  color: $color;
+}
