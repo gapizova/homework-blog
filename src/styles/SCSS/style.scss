@@ -209,3 +209,32 @@
   }
 }
 
+.special-post {
+  margin-top: 6em;
+
+  .card-post {
+    position: relative;
+    top: -35.6em;
+    left: 46%;
+    background-color: #E5E5E5;
+    width: 60%;
+    padding: 5em;
+    display: flex;
+    flex-direction: column;
+
+    .card-post__title {
+      margin-top: 0.6em;
+
+      @include font-h1;
+    }
+
+    .card-post__description {
+      margin-top: 0.6em;
+    }
+
+    .button {
+      margin-top: 1em;
+      width: 50%;
+    }
+  }
+}
