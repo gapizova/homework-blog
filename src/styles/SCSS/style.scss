@@ -176,3 +176,36 @@
     }
   }
 }
+
+.category {
+  margin-top: 6em;
+
+  .category__title {
+    text-align: center;
+  }
+
+  .category__box {
+    margin-top: 2em;
+    display: flex;
+    gap: 30px;
+  }
+
+  .card-post {
+    padding: 2em;
+    border: 1px solid rgba($medium-grey, 0.3);
+
+    &:hover {
+      background-color: $yellow;
+    }
+  }
+
+  .card-post__image img {
+    background-color: $light-yellow;
+    border-radius: 10px;
+  }
+
+  .card-post__title {
+    margin-top: 0.8em;
+  }
+}
+
