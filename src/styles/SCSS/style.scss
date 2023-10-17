@@ -211,11 +211,13 @@
 
 .special-post {
   margin-top: 6em;
+  position: relative;
 
   .card-post {
-    position: relative;
-    top: -35.6em;
+    position: absolute;
+    top: 8.3em;
     left: 46%;
+    opacity: 0.99;
     background-color: $light;
     width: 60%;
     padding: 5em;
