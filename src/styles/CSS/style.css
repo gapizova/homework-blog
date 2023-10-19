@@ -373,7 +373,7 @@ h2 {
 }
 
 .featured-post {
-  margin-top: 6em;
+  margin-top: 8em;
   display: flex;
   gap: 30px;
 }
@@ -415,7 +415,7 @@ h2 {
   align-items: center;
 }
 
-.featured-post .all-posts .all-posts__link {
+.featured-post .all-posts__link {
   font-family: Sen, sans-serif;
   font-size: 1rem;
   font-style: normal;
@@ -424,7 +424,7 @@ h2 {
   color: #592ea9;
 }
 
-.featured-post .all-posts .all-posts__box {
+.featured-post .all-posts__box {
   margin-top: 2em;
   padding: 0.1em;
   display: flex;
@@ -432,7 +432,7 @@ h2 {
   align-items: center;
 }
 
-.featured-post .all-posts .all-posts__box > .card-post {
+.featured-post .all-posts__box > .card-post {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -440,11 +440,11 @@ h2 {
   transition: background-color 0.3s ease;
 }
 
-.featured-post .all-posts .all-posts__box > .card-post:hover {
+.featured-post .all-posts__box > .card-post:hover {
   background-color: #fbf6ea;
 }
 
-.featured-post .all-posts .all-posts__box .card-post__title {
+.featured-post .all-posts__box .card-post__title {
   width: 60%;
   font-family: Sen, sans-serif;
   font-size: 1.5rem;
@@ -455,17 +455,17 @@ h2 {
 }
 
 .about-hero {
-  margin-top: 6em;
+  margin-top: 9em;
 }
 
-.about-hero .about-hero__box {
+.about-hero__box {
   position: relative;
   display: flex;
   gap: 30px;
   background-color: #f4f0f8;
 }
 
-.about-hero .about-hero__box::after {
+.about-hero__box::after {
   position: absolute;
   content: '';
   top: -23px;
@@ -475,21 +475,21 @@ h2 {
   background: linear-gradient(to left, #592ea9 50%, #ffd050 50%);
 }
 
-.about-hero .about-hero__box > .card-post {
+.about-hero__box > .card-post {
   width: 45%;
   padding: 6em 0 6em 5em;
 }
 
-.about-hero .about-hero__box .card-post__title {
+.about-hero__box .card-post__title {
   margin-top: 1em;
 }
 
-.about-hero .about-hero__box .card-post__description {
+.about-hero__box .card-post__description {
   margin-top: 0.8em;
   margin-bottom: 0.8em;
 }
 
-.about-hero .about-hero__box .about-hero__link {
+.about-hero__box__link {
   font-family: Sen, sans-serif;
   font-size: 1.125rem;
   font-style: normal;
@@ -499,14 +499,14 @@ h2 {
 }
 
 .category {
-  margin-top: 6em;
+  margin-top: 8em;
 }
 
-.category .category__title {
+.category__title {
   text-align: center;
 }
 
-.category .category__box {
+.category__box {
   margin-top: 2em;
   display: flex;
   gap: 30px;
@@ -532,7 +532,7 @@ h2 {
 }
 
 .special-post {
-  margin-top: 6em;
+  margin-top: 8em;
   position: relative;
 }
 
@@ -566,4 +566,12 @@ h2 {
 .special-post .card-post .button {
   margin-top: 1em;
   width: 50%;
+}
+
+.authors {
+  margin-top: 8em;
+}
+
+.authors__title {
+  text-align: center;
 }

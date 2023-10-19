@@ -67,7 +67,7 @@
 }
 
 .featured-post {
-  margin-top: 6em;
+  margin-top: 8em;
   display: flex;
   gap: 30px;
 
@@ -107,11 +107,11 @@
       align-items: center;
     }
 
-    .all-posts__link {
+    &__link {
       @include font-text($purple);
     }
 
-    .all-posts__box {
+    &__box {
       margin-top: 2em;
       padding: 0.1em;
       display: flex;
@@ -140,9 +140,9 @@
 }
 
 .about-hero {
-  margin-top: 6em;
+  margin-top: 9em;
 
-  .about-hero__box {
+  &__box {
     position: relative;
     display: flex;
     gap: 30px;
@@ -172,20 +172,20 @@
       margin-bottom: 0.8em;
     }
 
-    .about-hero__link {
+    &__link {
       @include font-link;
     }
   }
 }
 
 .category {
-  margin-top: 6em;
+  margin-top: 8em;
 
-  .category__title {
+  &__title {
     text-align: center;
   }
 
-  .category__box {
+  &__box {
     margin-top: 2em;
     display: flex;
     gap: 30px;
@@ -212,7 +212,7 @@
 }
 
 .special-post {
-  margin-top: 6em;
+  margin-top: 8em;
   position: relative;
 
   .card-post {
@@ -241,4 +241,12 @@
       width: 50%;
     }
   }
+}
+
+.authors {
+  &__title {
+    text-align: center;
+  }
+
+  margin-top: 8em;
 }
