@@ -326,9 +326,67 @@
   background-color: $light-yellow;
   display: flex;
 
+  &__box {
+    width: 60%;
+    height: 300px;
+    padding: 0 7em 0 5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .testimonial__text {
+      @include font-h4;
+
+      width: 80%;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+
+      &-image {
+        margin-right: 1em;
+      }
+
+      &-title {
+        @include font-h4;
+      }
+
+      &-description {
+        @include font-text;
+      }
+
+      .testimonial__button {
+        margin-left: auto;
+
+        .button-arrow {
+          background-color: $light-yellow;
+          border: none;
+          transition: transform 0.3s ease;
+          cursor: pointer;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+
   .card-post {
+    width: 40%;
+    padding: 0 3em;
     display: flex;
     flex-direction: column;
     border-right: 1px solid rgba($medium-grey, 0.4);
+
+    &__title {
+      margin-top: 0.5em;
+      width: 80%;
+    }
+
+    &__description {
+      margin-top: 1em;
+    }
   }
 }
