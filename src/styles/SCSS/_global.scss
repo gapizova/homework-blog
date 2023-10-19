@@ -53,6 +53,10 @@ span {
   overflow: hidden;
 }
 
+h1 {
+  @include font-h1;
+}
+
 h2 {
   @include font-h2;
 }
@@ -75,4 +79,12 @@ h2 {
 
 .big-title {
   @include font-h2;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
 }

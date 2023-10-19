@@ -1,9 +1,6 @@
 @import 'vars';
 @import 'mixin';
-@import 'navbar';
-@import 'footer';
-@import 'join';
-@import 'button';
+
 
 .hero {
   height: 90dvh;
@@ -161,39 +158,6 @@
     &__link {
       @include font-link;
     }
-  }
-}
-
-.category {
-  margin-top: 8em;
-
-  &__title {
-    text-align: center;
-  }
-
-  &__box {
-    margin-top: 2em;
-    display: flex;
-    gap: 30px;
-  }
-
-  .card-post {
-    padding: 2em;
-    border: 1px solid rgba($medium-grey, 0.3);
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: $yellow;
-    }
-  }
-
-  .card-post__image img {
-    background-color: $light-yellow;
-    border-radius: 10px;
-  }
-
-  .card-post__title {
-    margin-top: 0.8em;
   }
 }
 
