@@ -9,6 +9,7 @@
 
   color: $black;
   background-color: $yellow;
+  transition: background-color 0.3s ease;
 
   &:hover {
     background-color: color.scale($yellow, $lightness: -20%);

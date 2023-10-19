@@ -280,6 +280,7 @@ h2 {
   line-height: 1.33;
   color: #232536;
   background-color: #ffd050;
+  transition: background-color 0.3s ease;
 }
 
 .button:hover {
@@ -436,6 +437,7 @@ h2 {
   flex-direction: column;
   justify-content: center;
   padding: 2em 2em 1.56em;
+  transition: background-color 0.3s ease;
 }
 
 .featured-post .all-posts .all-posts__box > .card-post:hover {
@@ -513,6 +515,7 @@ h2 {
 .category .card-post {
   padding: 2em;
   border: 1px solid rgb(109 110 118 / 30%);
+  transition: background-color 0.3s ease;
 }
 
 .category .card-post:hover {

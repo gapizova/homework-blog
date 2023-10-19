@@ -123,6 +123,7 @@
         flex-direction: column;
         justify-content: center;
         padding: 2em 2em 1.56em;
+        transition: background-color 0.3s ease;
 
         &:hover {
           background-color: $light-yellow;
@@ -193,6 +194,7 @@
   .card-post {
     padding: 2em;
     border: 1px solid rgba($medium-grey, 0.3);
+    transition: background-color 0.3s ease;
 
     &:hover {
       background-color: $yellow;

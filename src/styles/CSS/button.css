@@ -7,10 +7,10 @@
   font-weight: 700;
   line-height: 1.33;
   color: #232536;
-  background-color: #FFD050;
+  background-color: #ffd050;
+  transition: background-color 0.3s ease;
 }
+
 .button:hover {
   background-color: #ffbe0d;
 }
-
-/*# sourceMappingURL=button.css.map */
