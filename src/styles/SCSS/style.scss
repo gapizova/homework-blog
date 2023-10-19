@@ -319,3 +319,16 @@
     gap: 74px;
   }
 }
+
+.testimonials {
+  margin-top: 8em;
+  padding: 5.75em 5em 7em;
+  background-color: $light-yellow;
+  display: flex;
+
+  .card-post {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba($medium-grey, 0.4);
+  }
+}
