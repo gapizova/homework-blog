@@ -82,8 +82,6 @@ body {
 
 .wrapper-inner {
   max-width: 845px;
-  margin: 0 auto;
-  padding: 0 1em;
 }
 
 span {
@@ -323,6 +321,128 @@ h2 {
 }
 .category .card-post__title {
   margin-top: 0.8em;
+}
+
+.page-post {
+  margin-top: 13em;
+  display: flex;
+  flex-direction: column;
+}
+.page-post__box {
+  margin: 0 auto;
+}
+.page-post .profile {
+  margin-bottom: 1.5em;
+  padding: 0 2.3em;
+  display: flex;
+  align-items: center;
+}
+.page-post .profile__image {
+  margin-right: 1em;
+}
+.page-post .profile__title {
+  font-family: Sen, sans-serif;
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -1px;
+  color: #592EA9;
+}
+.page-post .profile__description {
+  font-family: Sen, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #6D6E76;
+}
+.page-post__title {
+  padding: 0 0.8em;
+}
+.page-post .category-label {
+  padding: 0 2.3em;
+  margin-top: 2.3em;
+  display: flex;
+  align-items: center;
+}
+.page-post .category-label__title {
+  font-family: Sen, sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.33;
+  color: #232536;
+}
+.page-post__image {
+  margin: 4em auto;
+}
+.page-post__content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.page-post .content__title {
+  font-family: Sen, sans-serif;
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.33;
+  letter-spacing: -2px;
+  color: #232536;
+  margin-top: 2em;
+}
+.page-post .content__title:first-child {
+  margin-top: 0;
+}
+.page-post .content__text {
+  font-family: Sen, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #6D6E76;
+  margin-top: 1em;
+}
+.page-post .content__list {
+  list-style: disc;
+  margin: 1.5em;
+}
+.page-post .content__item {
+  font-family: Sen, sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.33;
+  color: rgba(35, 37, 54, 0.78);
+}
+
+.other-posts {
+  margin-top: 8em;
+}
+.other-posts .posts__box {
+  margin-top: 4em;
+  display: flex;
+  gap: 32px;
+}
+.other-posts .card-post {
+  display: flex;
+  flex-direction: column;
+}
+.other-posts .card-post__label {
+  margin-top: 2em;
+}
+.other-posts .card-post__title {
+  margin-top: 0.8em;
+}
+.other-posts .card-post__description {
+  margin-top: 1em;
+}
+.other-posts hr {
+  margin: 4em auto;
+  width: 100%;
+  border: 1px solid rgba(109, 110, 118, 0.32);
+  border-bottom-width: 0;
 }
 
 .invitation {
@@ -685,10 +805,10 @@ h2 {
   display: flex;
   align-items: center;
 }
-.testimonials__box .profile-image {
+.testimonials__box .profile__image {
   margin-right: 1em;
 }
-.testimonials__box .profile-title {
+.testimonials__box .profile__title {
   font-family: Sen, sans-serif;
   font-size: 1.5rem;
   font-style: normal;
@@ -696,7 +816,7 @@ h2 {
   line-height: 1.33;
   color: #232536;
 }
-.testimonials__box .profile-description {
+.testimonials__box .profile__description {
   font-family: Sen, sans-serif;
   font-size: 1rem;
   font-style: normal;

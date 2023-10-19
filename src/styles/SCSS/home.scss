@@ -294,15 +294,15 @@
       display: flex;
       align-items: center;
 
-      &-image {
+      &__image {
         margin-right: 1em;
       }
 
-      &-title {
+      &__title {
         @include font-h4;
       }
 
-      &-description {
+      &__description {
         @include font-text;
       }
 

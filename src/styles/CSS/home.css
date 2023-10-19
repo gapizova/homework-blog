@@ -361,11 +361,11 @@
   align-items: center;
 }
 
-.testimonials__box .profile-image {
+.testimonials__box .profile__image {
   margin-right: 1em;
 }
 
-.testimonials__box .profile-title {
+.testimonials__box .profile__title {
   font-family: Sen, sans-serif;
   font-size: 1.5rem;
   font-style: normal;
@@ -374,7 +374,7 @@
   color: #232536;
 }
 
-.testimonials__box .profile-description {
+.testimonials__box .profile__description {
   font-family: Sen, sans-serif;
   font-size: 1rem;
   font-style: normal;
