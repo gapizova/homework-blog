@@ -13,6 +13,15 @@
   gap: 30px;
 }
 
+.box-menu .button {
+  background-color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.box-menu .button:hover {
+  background-color: #6d6e76;
+}
+
 .menu {
   display: flex;
   flex-direction: column;

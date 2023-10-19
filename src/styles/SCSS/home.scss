@@ -1,0 +1,378 @@
+@import 'vars';
+@import 'mixin';
+@import 'navbar';
+@import 'footer';
+@import 'join';
+@import 'button';
+
+.hero {
+  height: 90dvh;
+  background: radial-gradient(80.99% 71.93% at 74.58% 0%, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 60%) 100%), url("/src/images/hero.png") no-repeat center center;
+  background-size: cover;
+
+  & > .card-post {
+    width: 80%;
+    position: relative;
+    top: 20%;
+    left: 10%;
+
+    & > .card-post__subtitle {
+      @include font-caps($light);
+
+      span {
+        color: $light;
+        font-weight: 700;
+      }
+    }
+
+    & > .card-post__title {
+      margin-top: 0.6em;
+
+      @include font-display($light);
+
+      width: 35%;
+    }
+
+    & > .card-post__label {
+      margin-top: 1em;
+
+      @include font-text($light);
+
+      & > span{
+        color: $yellow;
+      }
+    }
+
+    & > .card-post__description {
+      margin: 1em 0 2em;
+      width: 31%;
+
+      @include font-text($light);
+    }
+  }
+}
+
+.featured-post {
+  margin-top: 8em;
+  display: flex;
+  gap: 30px;
+
+  .post {
+    width: 48%;
+
+    & > .card-post {
+      margin-top: 2em;
+      padding: 2em;
+      border: 1px solid rgba($medium-grey, 0.1);
+    }
+
+    .card-post__label {
+      margin-top: 2em;
+    }
+
+    .card-post__title {
+      margin-top: .8em;
+    }
+
+    .card-post__description {
+      margin-top: 1.5em;
+    }
+
+    .button {
+      margin-top: 1.5em;
+    }
+  }
+
+  .all-posts {
+    width: 48%;
+
+    .title-block {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__link {
+      @include font-text($purple);
+    }
+
+    &__box {
+      margin-top: 2em;
+      padding: 0.1em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & > .card-post {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2em 2em 1.56em;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: $light-yellow;
+        }
+      }
+
+      .card-post__title {
+        width: 60%;
+
+        @include font-h4;
+      }
+    }
+  }
+}
+
+.about-hero {
+  margin-top: 9em;
+
+  &__box {
+    position: relative;
+    display: flex;
+    gap: 30px;
+    background-color: $lavender;
+
+    &::after {
+      position: absolute;
+      content: '';
+      top: -23px;
+      right: 0;
+      width: 80%;
+      height: 23px;
+      background: linear-gradient(to left, $purple 50%, $yellow 50%);
+    }
+
+    & > .card-post {
+      width: 45%;
+      padding: 6em 0 6em 5em;
+    }
+
+    .card-post__title {
+      margin-top: 1em;
+    }
+
+    .card-post__description {
+      margin-top: 0.8em;
+      margin-bottom: 0.8em;
+    }
+
+    &__link {
+      @include font-link;
+    }
+  }
+}
+
+.category {
+  margin-top: 8em;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__box {
+    margin-top: 2em;
+    display: flex;
+    gap: 30px;
+  }
+
+  .card-post {
+    padding: 2em;
+    border: 1px solid rgba($medium-grey, 0.3);
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $yellow;
+    }
+  }
+
+  .card-post__image img {
+    background-color: $light-yellow;
+    border-radius: 10px;
+  }
+
+  .card-post__title {
+    margin-top: 0.8em;
+  }
+}
+
+.special-post {
+  margin-top: 8em;
+  position: relative;
+
+  .card-post {
+    position: absolute;
+    top: 8.3em;
+    left: 46%;
+    opacity: 0.99;
+    background-color: $light;
+    width: 60%;
+    padding: 5em;
+    display: flex;
+    flex-direction: column;
+
+    .card-post__title {
+      margin-top: 0.6em;
+
+      @include font-h1;
+    }
+
+    .card-post__description {
+      margin-top: 0.6em;
+    }
+
+    .button {
+      margin-top: 1em;
+      width: 50%;
+    }
+  }
+}
+
+.authors {
+  &__title {
+    text-align: center;
+  }
+
+  margin-top: 8em;
+
+  &__box {
+    margin-top: 3em;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .author-card {
+    padding: 2.5em 1.75em;
+    width: 300px;
+    background-color: $light-grey;
+    transition: background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__title {
+      @include font-h3;
+
+      margin-top: 1em;
+    }
+
+    &__description {
+      @include font-text-small;
+    }
+
+    &__list-social {
+      margin-top: 1em;
+    }
+
+    &__item-social {
+      display: inline-block;
+      margin-right: 1.68em;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &:hover {
+      background-color: $light-yellow;
+    }
+  }
+}
+
+.logo-component {
+  margin-top: 8em;
+  width: 100%;
+  display: flex;
+
+  &__label {
+    @include font-text-small($medium-grey);
+
+    span {
+      @include font-h4($medium-grey);
+    }
+  }
+
+  &__box {
+    margin-left: 5em;
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 74px;
+  }
+}
+
+.testimonials {
+  margin-top: 8em;
+  padding: 5.75em 5em 7em;
+  background-color: $light-yellow;
+  display: flex;
+
+  &__box {
+    width: 60%;
+    height: 300px;
+    padding: 0 7em 0 5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .testimonial__text {
+      @include font-h4;
+
+      width: 80%;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+
+      &-image {
+        margin-right: 1em;
+      }
+
+      &-title {
+        @include font-h4;
+      }
+
+      &-description {
+        @include font-text;
+      }
+
+      .testimonial__button {
+        margin-left: auto;
+
+        .button-arrow {
+          background-color: $light-yellow;
+          border: none;
+          transition: transform 0.3s ease;
+          cursor: pointer;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+
+  .card-post {
+    width: 40%;
+    padding: 0 3em;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba($medium-grey, 0.4);
+
+    &__title {
+      margin-top: 0.5em;
+      width: 80%;
+    }
+
+    &__description {
+      margin-top: 1em;
+    }
+  }
+}
