@@ -249,4 +249,49 @@
   }
 
   margin-top: 8em;
+
+  &__box {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .author-card {
+    padding: 2.5em 1.75em;
+    width: 300px;
+    background-color: $light-grey;
+    transition: background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__title {
+      @include font-h3;
+
+      margin-top: 1em;
+    }
+
+    &__description {
+      @include font-text-small;
+    }
+
+    &__list-social {
+      margin-top: 1em;
+    }
+
+    &__item-social {
+      display: inline-block;
+      margin-right: 1.68em;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &:hover {
+      background-color: $light-yellow;
+    }
+  }
 }
