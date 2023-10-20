@@ -1,0 +1,73 @@
+@import "vars";
+@import "mixin";
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  padding: 3.68em 5em 3.5em;
+  background-color: $black;
+  align-items: center;
+}
+
+.footer__navigation {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__subscribe {
+  width: 100%;
+  margin-top: 3.43em;
+  padding: 5em 4em;
+  background: rgb(255 255 255 / 10%);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .subscribe__title {
+    width: 30%;
+
+    @include font-h2($light);
+  }
+
+  .subscribe__input {
+    width: 60%;
+    text-align: end;
+
+    @include font-text($medium-grey);
+
+    input {
+      max-width: 325px;
+      margin-right: 1.5em;
+      border: 1px solid $medium-grey;
+      background: rgb(255 255 255 / 10%);
+      padding: 0.875em 1.5em;
+      color: $light;
+    }
+  }
+}
+
+
+
+.footer__contact {
+  width: 100%;
+  margin-top: 3.2em;
+  display: flex;
+  justify-content: space-between;
+
+  .contact__text, .contact__text > a {
+    @include font-text($light);
+
+    opacity: 0.7;
+  }
+
+  .item-social {
+    display: inline-block;
+    margin-right: 1.68em;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
