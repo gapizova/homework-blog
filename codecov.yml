@@ -1,0 +1,9 @@
+coverage:
+  status:
+    patch:
+      default:
+        target: 60%
+        threshold: 0.03%
+        base: auto
+comment:
+  layout: 'newheader, diff, files, newfooter'
