@@ -30,6 +30,12 @@ body {
   padding: 0 1em;
 }
 
+.container-inner {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
 .wrapper-inner {
   max-width: 845px;
 }
@@ -59,7 +65,7 @@ h2 {
   @include font-h2;
 }
 
-.card-post__description {
+.card-post__description, .feedback__description {
   @include font-text($medium-grey);
 }
 
@@ -71,7 +77,7 @@ h2 {
   @include font-h3;
 }
 
-.card-post__subtitle {
+.card-post__subtitle, .feedback__subtitle {
   @include font-caps;
 }
 
