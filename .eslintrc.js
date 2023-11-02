@@ -39,5 +39,6 @@ module.exports = {
     'jest/valid-expect': 'error',
     'no-param-reassign': 'off',
     'prefer-destructuring': 'off',
+    'no-plusplus': 'off',
   },
 };

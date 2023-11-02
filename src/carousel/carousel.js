@@ -1,11 +1,11 @@
-// let rightArrow = document.querySelector('.right-arrow');
-// let leftArrow = document.querySelector('.right-arrow');
+const rightArrow = document.querySelector('.right-arrow');
+const leftArrow = document.querySelector('.left-arrow');
 const boxScreen = document.querySelectorAll('.carousel-screen');
 const numberOfScreen = boxScreen.length;
 const boxLine = document.querySelectorAll('.lines-container .line');
-const currentScreen = 0;
-const inAnimation = false;
-// let animationTime = 500
+let currentScreen = 0;
+let inAnimation = false;
+const animationTime = 500;
 
 /**
  * Slide sorting function by position, avoid overlapping slides
@@ -61,16 +61,182 @@ function coloringLine(lineSelect, direction) {
   });
 }
 
+// Implementation of animation methods
+function toLeft(screen) {
+  screen.style.animation = 'to-left 0.5s ease-in-out forwards';
+  setTimeout(() => {
+    screen.style.animation = '';
+  }, animationTime);
+}
+
+function toRight(screen) {
+  screen.style.animation = 'to-right 0.5s ease-in-out forwards';
+  setTimeout(() => {
+    screen.style.animation = '';
+  }, animationTime);
+}
+
+function comeRight(screen) {
+  screen.style.animation = 'come-right 0.5s ease-in-out forwards';
+  setTimeout(() => {
+    screen.style.animation = '';
+  }, animationTime);
+}
+
+function comeLeft(screen) {
+  screen.style.animation = 'come-left 0.5s ease-in-out forwards';
+  setTimeout(() => {
+    screen.style.animation = '';
+  }, animationTime);
+}
+
+/**
+ * The function of flipping the slide to the right
+ * @return void
+ */
+function moveRight() {
+  if (currentScreen < numberOfScreen - 1) {
+    toLeft(boxScreen[currentScreen]);
+    comeRight(boxScreen[currentScreen + 1]);
+    setTimeout(() => {
+      inAnimation = false;
+      currentScreen++;
+      sortPosition(
+        boxScreen[currentScreen],
+        boxScreen[currentScreen - 1],
+        boxScreen[currentScreen + 1],
+      );
+    }, animationTime);
+  } else {
+    toLeft(boxScreen[currentScreen]);
+    comeRight(boxScreen[0]);
+    setTimeout(() => {
+      inAnimation = false;
+      currentScreen = 0;
+      sortPosition(
+        boxScreen[currentScreen],
+        boxScreen[currentScreen - 1],
+        boxScreen[currentScreen + 1],
+      );
+    }, animationTime);
+  }
+}
+
+/**
+ * The function of flipping the slide to the left
+ * @return void
+ */
+function moveLeft() {
+  if (currentScreen > 0) {
+    toRight(boxScreen[currentScreen]);
+    comeLeft(boxScreen[currentScreen - 1]);
+    setTimeout(() => {
+      inAnimation = false;
+      currentScreen--;
+      sortPosition(
+        boxScreen[currentScreen],
+        boxScreen[currentScreen - 1],
+        boxScreen[currentScreen + 1],
+      );
+    }, animationTime);
+  } else {
+    toRight(boxScreen[currentScreen]);
+    comeLeft(boxScreen[numberOfScreen - 1]);
+    setTimeout(() => {
+      inAnimation = false;
+      currentScreen = numberOfScreen - 1;
+      sortPosition(
+        boxScreen[currentScreen],
+        boxScreen[currentScreen - 1],
+        boxScreen[currentScreen + 1],
+      );
+    }, animationTime);
+  }
+}
+
+/**
+ * Start animation right or left
+ * @param direction { string } - animation direction
+ * @return void
+ */
+function startAnimation(direction) {
+  if (!inAnimation) {
+    inAnimation = true;
+    if (direction === 'right') {
+      moveRight();
+      coloringLine(boxLine[currentScreen + 1], 'right');
+    } else if (direction === 'left') {
+      moveLeft();
+      coloringLine(boxLine[currentScreen - 1], 'left');
+    } else {
+      inAnimation = false;
+    }
+  }
+}
+
+/**
+ * Slide switching function using lines
+ * @param lineIndex { number } - index of the pressed line
+ * @param direction { string } - of the direction of movement
+ * @return void
+ */
+function moveSlideLineClick(lineIndex, direction) {
+  inAnimation = true;
+  if (direction === 'right') {
+    sortPosition(
+      boxScreen[currentScreen],
+      boxScreen[currentScreen - 1],
+      boxScreen[lineIndex],
+    );
+    toLeft(boxScreen[currentScreen]);
+    comeRight(boxScreen[lineIndex]);
+  } else if (direction === 'left') {
+    sortPosition(
+      boxScreen[currentScreen],
+      boxScreen[lineIndex],
+      boxScreen[currentScreen + 1],
+    );
+    toRight(boxScreen[currentScreen]);
+    comeLeft(boxScreen[lineIndex]);
+  } else {
+    inAnimation = false;
+  }
+  setTimeout(() => {
+    inAnimation = false;
+    currentScreen = lineIndex;
+    sortPosition(
+      boxScreen[currentScreen],
+      boxScreen[currentScreen - 1],
+      boxScreen[currentScreen + 1],
+    );
+  }, animationTime);
+}
+
 // Processing of clicking on the line
 boxLine.forEach((line) => {
   line.addEventListener('click', (event) => {
     if (!inAnimation) {
-      // let arrLine = Array.prototype.slice.call(boxLine);
-      // let lineIndex = arrLine.indexOf(event.target);
+      const arrLine = Array.prototype.slice.call(boxLine);
+      const lineIndex = arrLine.indexOf(event.target);
       // applying the current line coloring function
-      coloringLine(event.target);
+      coloringLine(event.target, 'none');
+      if (lineIndex > currentScreen) {
+        moveSlideLineClick(lineIndex, 'right');
+      } else if (lineIndex < currentScreen) {
+        moveSlideLineClick(lineIndex, 'left');
+      }
     }
   });
+});
+
+// Processing of clicking on the right arrow
+rightArrow.addEventListener('click', () => {
+  startAnimation('right');
+});
+
+// Processing of clicking on the left arrow
+leftArrow.addEventListener('click', () => {
+  startAnimation('left');
 });
 
 // initial display of the first slide
@@ -80,4 +246,4 @@ sortPosition(
   boxScreen[currentScreen + 1],
 );
 // initial style addition to the first line
-coloringLine(boxLine[0]);
+coloringLine(boxLine[0], 'none');
