@@ -230,14 +230,18 @@ boxLine.forEach((line) => {
 });
 
 // Processing of clicking on the right arrow
-rightArrow.addEventListener('click', () => {
-  startAnimation('right');
-});
+if (rightArrow) {
+  rightArrow.addEventListener('click', () => {
+    startAnimation('right');
+  });
+}
 
 // Processing of clicking on the left arrow
-leftArrow.addEventListener('click', () => {
-  startAnimation('left');
-});
+if (leftArrow) {
+  leftArrow.addEventListener('click', () => {
+    startAnimation('left');
+  });
+}
 
 // initial display of the first slide
 sortPosition(
@@ -247,3 +251,5 @@ sortPosition(
 );
 // initial style addition to the first line
 coloringLine(boxLine[0], 'none');
+
+export { sortPosition, coloringLine };
