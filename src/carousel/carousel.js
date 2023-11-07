@@ -251,5 +251,3 @@ sortPosition(
 );
 // initial style addition to the first line
 coloringLine(boxLine[0], 'none');
-
-export { sortPosition, coloringLine };
