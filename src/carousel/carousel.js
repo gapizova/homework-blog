@@ -1,14 +1,54 @@
-export default function Carousel(containerID, autoplayDefault = false) {
-  const container = document.querySelector(containerID);
-  const rightArrow = document.querySelector('.right-arrow');
-  const leftArrow = document.querySelector('.left-arrow');
-  const boxScreen = document.querySelectorAll('.carousel-screen');
-  const numberOfScreen = boxScreen.length;
-  const boxLine = document.querySelectorAll('.lines-container .line');
-  let currentScreen = 0;
-  let inAnimation = false;
-  const animationTime = 500;
-  const autoplay = autoplayDefault;
+export default class Carousel {
+  constructor() {
+    this.rightArrow = document.querySelector('.right-arrow');
+    this.leftArrow = document.querySelector('.left-arrow');
+    this.boxScreen = document.querySelectorAll('.carousel-screen');
+    this.numberOfScreen = this.boxScreen.length;
+    this.boxLine = document.querySelectorAll('.lines-container .line');
+    this.currentScreen = 0;
+    this.inAnimation = false;
+    this.animationTime = 500;
+
+    // initial display of the first slide
+    this.sortPosition(
+      this.boxScreen[this.currentScreen],
+      this.boxScreen[this.currentScreen - 1],
+      this.boxScreen[this.currentScreen + 1],
+    );
+    // initial style addition to the first line
+    this.coloringLine(this.boxLine[0], 'none');
+
+    // Processing of clicking on the line
+    this.boxLine.forEach((line) => {
+      line.addEventListener('click', (event) => {
+        if (!this.inAnimation) {
+          const arrLine = Array.prototype.slice.call(this.boxLine);
+          const lineIndex = arrLine.indexOf(event.target);
+          // applying the current line coloring function
+          this.coloringLine(event.target, 'none');
+          if (lineIndex > this.currentScreen) {
+            this.moveSlideLineClick(lineIndex, 'right');
+          } else if (lineIndex < this.currentScreen) {
+            this.moveSlideLineClick(lineIndex, 'left');
+          }
+        }
+      });
+    });
+
+    // Processing of clicking on the right arrow
+    if (this.rightArrow) {
+      this.rightArrow.addEventListener('click', () => {
+        this.startAnimation('right');
+      });
+    }
+
+    // Processing of clicking on the left arrow
+    if (this.leftArrow) {
+      this.leftArrow.addEventListener('click', () => {
+        this.startAnimation('left');
+      });
+    }
+  }
 
   /**
    * Slide sorting function by position, avoid overlapping slides
@@ -17,17 +57,17 @@ export default function Carousel(containerID, autoplayDefault = false) {
    * @param rightScreen { object } - next slide
    * @return void
    */
-  function sortPosition(mainScreen, leftScreen, rightScreen) {
+  sortPosition(mainScreen, leftScreen, rightScreen) {
     // Repeat first screen again if rightScreen is undefined
     if (rightScreen === undefined) {
-      rightScreen = boxScreen[0];
+      rightScreen = this.boxScreen[0];
     }
     // Repeat last screen again if leftScreen is undefined
     if (leftScreen === undefined) {
-      leftScreen = boxScreen[numberOfScreen - 1];
+      leftScreen = this.boxScreen[this.numberOfScreen - 1];
     }
 
-    boxScreen.forEach((screen) => {
+    this.boxScreen.forEach((screen) => {
       if (screen === mainScreen) {
         screen.style.display = 'block';
         screen.style.left = '0px';
@@ -49,13 +89,13 @@ export default function Carousel(containerID, autoplayDefault = false) {
    * @param direction
    * @return void
    */
-  function coloringLine(lineSelect, direction) {
+  coloringLine(lineSelect, direction) {
     if (lineSelect === undefined && direction === 'right') {
-      lineSelect = boxLine[0];
+      lineSelect = this.boxLine[0];
     } else if (lineSelect === undefined && direction === 'left') {
-      lineSelect = boxLine[numberOfScreen - 1];
+      lineSelect = this.boxLine[this.numberOfScreen - 1];
     }
-    boxLine.forEach((line) => {
+    this.boxLine.forEach((line) => {
       if (line === lineSelect) {
         line.classList.add('line-fill');
       } else {
@@ -65,63 +105,63 @@ export default function Carousel(containerID, autoplayDefault = false) {
   }
 
   // Implementation of animation methods
-  function toLeft(screen) {
+  toLeft(screen) {
     screen.style.animation = 'to-left 0.5s ease-in-out forwards';
     setTimeout(() => {
       screen.style.animation = '';
-    }, animationTime);
+    }, this.animationTime);
   }
 
-  function toRight(screen) {
+  toRight(screen) {
     screen.style.animation = 'to-right 0.5s ease-in-out forwards';
     setTimeout(() => {
       screen.style.animation = '';
-    }, animationTime);
+    }, this.animationTime);
   }
 
-  function comeRight(screen) {
+  comeRight(screen) {
     screen.style.animation = 'come-right 0.5s ease-in-out forwards';
     setTimeout(() => {
       screen.style.animation = '';
-    }, animationTime);
+    }, this.animationTime);
   }
 
-  function comeLeft(screen) {
+  comeLeft(screen) {
     screen.style.animation = 'come-left 0.5s ease-in-out forwards';
     setTimeout(() => {
       screen.style.animation = '';
-    }, animationTime);
+    }, this.animationTime);
   }
 
   /**
    * The function of flipping the slide to the right
    * @return void
    */
-  function moveRight() {
-    if (currentScreen < numberOfScreen - 1) {
-      toLeft(boxScreen[currentScreen]);
-      comeRight(boxScreen[currentScreen + 1]);
+  moveRight() {
+    if (this.currentScreen < this.numberOfScreen - 1) {
+      this.toLeft(this.boxScreen[this.currentScreen]);
+      this.comeRight(this.boxScreen[this.currentScreen + 1]);
       setTimeout(() => {
-        inAnimation = false;
-        currentScreen++;
-        sortPosition(
-          boxScreen[currentScreen],
-          boxScreen[currentScreen - 1],
-          boxScreen[currentScreen + 1],
+        this.inAnimation = false;
+        this.currentScreen++;
+        this.sortPosition(
+          this.boxScreen[this.currentScreen],
+          this.boxScreen[this.currentScreen - 1],
+          this.boxScreen[this.currentScreen + 1],
         );
-      }, animationTime);
+      }, this.animationTime);
     } else {
-      toLeft(boxScreen[currentScreen]);
-      comeRight(boxScreen[0]);
+      this.toLeft(this.boxScreen[this.currentScreen]);
+      this.comeRight(this.boxScreen[0]);
       setTimeout(() => {
-        inAnimation = false;
-        currentScreen = 0;
-        sortPosition(
-          boxScreen[currentScreen],
-          boxScreen[currentScreen - 1],
-          boxScreen[currentScreen + 1],
+        this.inAnimation = false;
+        this.currentScreen = 0;
+        this.sortPosition(
+          this.boxScreen[this.currentScreen],
+          this.boxScreen[this.currentScreen - 1],
+          this.boxScreen[this.currentScreen + 1],
         );
-      }, animationTime);
+      }, this.animationTime);
     }
   }
 
@@ -129,31 +169,31 @@ export default function Carousel(containerID, autoplayDefault = false) {
    * The function of flipping the slide to the left
    * @return void
    */
-  function moveLeft() {
-    if (currentScreen > 0) {
-      toRight(boxScreen[currentScreen]);
-      comeLeft(boxScreen[currentScreen - 1]);
+  moveLeft() {
+    if (this.currentScreen > 0) {
+      this.toRight(this.boxScreen[this.currentScreen]);
+      this.comeLeft(this.boxScreen[this.currentScreen - 1]);
       setTimeout(() => {
-        inAnimation = false;
-        currentScreen--;
-        sortPosition(
-          boxScreen[currentScreen],
-          boxScreen[currentScreen - 1],
-          boxScreen[currentScreen + 1],
+        this.inAnimation = false;
+        this.currentScreen--;
+        this.sortPosition(
+          this.boxScreen[this.currentScreen],
+          this.boxScreen[this.currentScreen - 1],
+          this.boxScreen[this.currentScreen + 1],
         );
-      }, animationTime);
+      }, this.animationTime);
     } else {
-      toRight(boxScreen[currentScreen]);
-      comeLeft(boxScreen[numberOfScreen - 1]);
+      this.toRight(this.boxScreen[this.currentScreen]);
+      this.comeLeft(this.boxScreen[this.numberOfScreen - 1]);
       setTimeout(() => {
-        inAnimation = false;
-        currentScreen = numberOfScreen - 1;
-        sortPosition(
-          boxScreen[currentScreen],
-          boxScreen[currentScreen - 1],
-          boxScreen[currentScreen + 1],
+        this.inAnimation = false;
+        this.currentScreen = this.numberOfScreen - 1;
+        this.sortPosition(
+          this.boxScreen[this.currentScreen],
+          this.boxScreen[this.currentScreen - 1],
+          this.boxScreen[this.currentScreen + 1],
         );
-      }, animationTime);
+      }, this.animationTime);
     }
   }
 
@@ -162,17 +202,17 @@ export default function Carousel(containerID, autoplayDefault = false) {
    * @param direction { string } - animation direction
    * @return void
    */
-  function startAnimation(direction) {
-    if (!inAnimation) {
-      inAnimation = true;
+  startAnimation(direction) {
+    if (!this.inAnimation) {
+      this.inAnimation = true;
       if (direction === 'right') {
-        moveRight();
-        coloringLine(boxLine[currentScreen + 1], 'right');
+        this.moveRight();
+        this.coloringLine(this.boxLine[this.currentScreen + 1], 'right');
       } else if (direction === 'left') {
-        moveLeft();
-        coloringLine(boxLine[currentScreen - 1], 'left');
+        this.moveLeft();
+        this.coloringLine(this.boxLine[this.currentScreen - 1], 'left');
       } else {
-        inAnimation = false;
+        this.inAnimation = false;
       }
     }
   }
@@ -183,75 +223,39 @@ export default function Carousel(containerID, autoplayDefault = false) {
    * @param direction { string } - of the direction of movement
    * @return void
    */
-  function moveSlideLineClick(lineIndex, direction) {
-    inAnimation = true;
+  moveSlideLineClick(lineIndex, direction) {
+    this.inAnimation = true;
     if (direction === 'right') {
-      sortPosition(
-        boxScreen[currentScreen],
-        boxScreen[currentScreen - 1],
-        boxScreen[lineIndex],
+      this.sortPosition(
+        this.boxScreen[this.currentScreen],
+        this.boxScreen[this.currentScreen - 1],
+        this.boxScreen[lineIndex],
       );
-      toLeft(boxScreen[currentScreen]);
-      comeRight(boxScreen[lineIndex]);
+      this.toLeft(this.boxScreen[this.currentScreen]);
+      this.comeRight(this.boxScreen[lineIndex]);
     } else if (direction === 'left') {
-      sortPosition(
-        boxScreen[currentScreen],
-        boxScreen[lineIndex],
-        boxScreen[currentScreen + 1],
+      this.sortPosition(
+        this.boxScreen[this.currentScreen],
+        this.boxScreen[lineIndex],
+        this.boxScreen[this.currentScreen + 1],
       );
-      toRight(boxScreen[currentScreen]);
-      comeLeft(boxScreen[lineIndex]);
+      this.toRight(this.boxScreen[this.currentScreen]);
+      this.comeLeft(this.boxScreen[lineIndex]);
     } else {
-      inAnimation = false;
+      this.inAnimation = false;
     }
     setTimeout(() => {
-      inAnimation = false;
-      currentScreen = lineIndex;
-      sortPosition(
-        boxScreen[currentScreen],
-        boxScreen[currentScreen - 1],
-        boxScreen[currentScreen + 1],
+      this.inAnimation = false;
+      this.currentScreen = lineIndex;
+      this.sortPosition(
+        this.boxScreen[this.currentScreen],
+        this.boxScreen[this.currentScreen - 1],
+        this.boxScreen[this.currentScreen + 1],
       );
-    }, animationTime);
+    }, this.animationTime);
   }
-
-  // Processing of clicking on the line
-  boxLine.forEach((line) => {
-    line.addEventListener('click', (event) => {
-      if (!inAnimation) {
-        const arrLine = Array.prototype.slice.call(boxLine);
-        const lineIndex = arrLine.indexOf(event.target);
-        // applying the current line coloring function
-        coloringLine(event.target, 'none');
-        if (lineIndex > currentScreen) {
-          moveSlideLineClick(lineIndex, 'right');
-        } else if (lineIndex < currentScreen) {
-          moveSlideLineClick(lineIndex, 'left');
-        }
-      }
-    });
-  });
-
-  // Processing of clicking on the right arrow
-  if (rightArrow) {
-    rightArrow.addEventListener('click', () => {
-      startAnimation('right');
-    });
-  }
-
-  // Processing of clicking on the left arrow
-  if (leftArrow) {
-    leftArrow.addEventListener('click', () => {
-      startAnimation('left');
-    });
-  }
-
-  // initial display of the first slide
-  sortPosition(
-    boxScreen[currentScreen],
-    boxScreen[currentScreen - 1],
-    boxScreen[currentScreen + 1],
-  );
-  // initial style addition to the first line
-  coloringLine(boxLine[0], 'none');
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  new Carousel();
+});
