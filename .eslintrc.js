@@ -41,5 +41,7 @@ module.exports = {
     'prefer-destructuring': 'off',
     'no-plusplus': 'off',
     'no-new': 'off',
+    'no-unused-vars': 'off',
+    'no-console': 'off',
   },
 };

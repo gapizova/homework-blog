@@ -1,24 +1,69 @@
-export default class Carousel {
-  constructor() {
-    this.rightArrow = document.querySelector('.right-arrow');
-    this.leftArrow = document.querySelector('.left-arrow');
+class Carousel {
+  constructor(containerId, options = {}) {
+    this.container = document.querySelector(containerId);
+    this.rightArrow = null;
+    this.leftArrow = null;
     this.boxScreen = document.querySelectorAll('.carousel-screen');
     this.numberOfScreen = this.boxScreen.length;
-    this.boxLine = document.querySelectorAll('.lines-container .line');
+    this.boxLine = null;
+    this.containerLines = null;
+    this.line = null;
+    this.label = null;
     this.currentScreen = 0;
     this.inAnimation = false;
     this.animationTime = 500;
+    this.autoplayInterval = 5000;
+    this.autoplayDelay =
+      options && options.autoplayDelay ? options.autoplayDelay : 0;
+    this.autoplayEnabled = options && options.autoplayEnabled;
 
-    // initial display of the first slide
+    this.initialize();
+    this.addEventListeners();
     this.sortPosition(
       this.boxScreen[this.currentScreen],
       this.boxScreen[this.currentScreen - 1],
       this.boxScreen[this.currentScreen + 1],
     );
-    // initial style addition to the first line
-    this.coloringLine(this.boxLine[0], 'none');
 
-    // Processing of clicking on the line
+    if (this.autoplayEnabled) {
+      this.startAutoplay();
+    }
+  }
+
+  initialize() {
+    if (!this.container) {
+      console.error('Carousel element not found.');
+    }
+
+    this.containerLines = document.createElement('div');
+    this.containerLines.classList.add('lines-container');
+    this.container.appendChild(this.containerLines);
+
+    for (let i = 0; i < this.numberOfScreen; i++) {
+      this.line = document.createElement('div');
+      this.line.classList.add('line');
+      this.containerLines.appendChild(this.line);
+    }
+
+    this.leftArrow = document.createElement('div');
+    this.leftArrow.classList.add('left-arrow');
+    this.container.appendChild(this.leftArrow);
+    this.label = document.createElement('span');
+    this.label.classList.add('label', 'left');
+    this.leftArrow.appendChild(this.label);
+
+    this.rightArrow = document.createElement('div');
+    this.rightArrow.classList.add('right-arrow');
+    this.container.appendChild(this.rightArrow);
+    this.label = document.createElement('span');
+    this.label.classList.add('label', 'right');
+    this.rightArrow.appendChild(this.label);
+
+    this.boxLine = document.querySelectorAll('.lines-container .line');
+    this.coloringLine(this.boxLine[0], 'none');
+  }
+
+  addEventListeners() {
     this.boxLine.forEach((line) => {
       line.addEventListener('click', (event) => {
         if (!this.inAnimation) {
@@ -49,6 +94,23 @@ export default class Carousel {
       });
     }
   }
+
+  startAutoplay() {
+    if (this.autoplayInterval) {
+      clearInterval(this.autoplayInterval);
+    }
+
+    this.autoplayInterval = setInterval(() => {
+      this.startAnimation('right');
+    }, this.autoplayDelay);
+  }
+
+  /* stopAutoplay() {
+    if (this.autoplayInterval) {
+      clearInterval(this.autoplayInterval);
+      this.autoplayInterval = null;
+    }
+  } */
 
   /**
    * Slide sorting function by position, avoid overlapping slides
@@ -255,7 +317,3 @@ export default class Carousel {
     }, this.animationTime);
   }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  new Carousel();
-});

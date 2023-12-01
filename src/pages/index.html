@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -291,20 +291,29 @@
               <li class="carousel-screen"><img src="../images/blog__post2.png" alt="Slide2"></li>
               <li class="carousel-screen"><img src="../images/blog__post3.png" alt="Slide3"></li>
             </ul>
-            <div class="lines-container">
+            <!--<div class="lines-container">
               <div class="line"></div>
               <div class="line"></div>
-              <div class="line"></div>
-            </div>
+            </div>              <div class="line"></div>
+
             <div class="left-arrow">
               <span class="label left"></span>
             </div>
             <div class="right-arrow">
               <span class="label right"></span>
-            </div>
+            </div>-->
           </div>
         </div>
       </div>
+      <script src="../carousel/carousel.js"></script>
+      <script>
+				document.addEventListener('DOMContentLoaded', () => {
+					const carousel = new Carousel('.carousel-container', {
+						animationTime: 500,
+						autoplayEnabled: false,
+					});
+				});
+      </script>
     </section>
   </main>
 
@@ -355,6 +364,5 @@
     </div>
   </footer>
 </div>
-<script src="../carousel/carousel.js"></script>
 </body>
 </html>
