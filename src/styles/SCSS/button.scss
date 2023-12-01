@@ -1,0 +1,18 @@
+@use "sass:color";
+@import "mixin", "vars";
+
+.button {
+  padding: 1em 3em;
+  border: none;
+  cursor: pointer;
+
+  @include font-button;
+
+  color: $black;
+  background-color: $yellow;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: color.scale($yellow, $lightness: -20%);
+  }
+}

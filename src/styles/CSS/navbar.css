@@ -1,0 +1,42 @@
+.header {
+  max-width: 100%;
+  padding: 1.5em 5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #232536;
+}
+
+.box-menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.box-menu .button {
+  background-color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.box-menu .button:hover {
+  background-color: #6d6e76;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu__list-item {
+  display: inline-block;
+  margin: 1.5em;
+}
+
+.menu__list-link {
+  font-family: Sen, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #fff;
+}

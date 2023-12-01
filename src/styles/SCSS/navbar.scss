@@ -1,0 +1,40 @@
+@import "mixin";
+@import "vars";
+
+.header {
+  max-width: 100%;
+  padding: 1.5em 5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $black;
+}
+
+.box-menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  .button {
+    background-color: $light;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $medium-grey;
+    }
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu__list-item {
+  display: inline-block;
+  margin: 1.5em;
+}
+
+.menu__list-link {
+  @include font-text($light);
+}
